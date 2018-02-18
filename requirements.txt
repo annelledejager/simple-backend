@@ -1,6 +1,7 @@
 Django>=1.8,<2.0
 djangorestframework
 django_heroku
+gunicorn
 psycopg2
 pycodestyle
 pygments
