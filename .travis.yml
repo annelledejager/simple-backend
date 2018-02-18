@@ -5,9 +5,9 @@ language: python
 python:
   - "3.6"
 
-before_script:
-  - docker-compose up --build -d
-
-script:
-#  TODO: Run tests here
-  - docker-compose down
+jobs:
+ include:
+   - stage: build
+     script: docker-compose up --build -d; docker-compose up --build -d
+   - stage: test
+     script: docker-compose -f docker-compose.test.yml up --build -d; docker-compose -f docker-compose.test.yml down
