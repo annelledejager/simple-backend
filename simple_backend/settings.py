@@ -112,3 +112,8 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': []
 }
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
+
