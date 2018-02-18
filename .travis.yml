@@ -12,6 +12,7 @@ jobs:
   - stage: build
     script: docker-compose up --build -d
   - stage: deploy
+    script: skip
     deploy:
       provider: heroku
       api_key:
