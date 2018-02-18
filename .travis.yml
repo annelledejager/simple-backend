@@ -6,10 +6,8 @@ python:
   - "3.6"
 
 before_script:
-  - docker-compose up --build -d
+  - docker-compose up --build
 
 script:
-  - python manage.py test
-
-after_script:
+#  TODO: Run tests here
   - docker-compose down
