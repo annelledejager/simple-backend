@@ -14,10 +14,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from rest_framework.urlpatterns import format_suffix_patterns
-from simple_backend.views import api
+from simple_backend import api
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^snippets/$', api.SnippetList.as_view()),
+    url(r'^colors/$', api.ColorsList.as_view()),
 ]

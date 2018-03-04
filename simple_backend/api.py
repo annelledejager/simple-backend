@@ -1,21 +1,21 @@
-from simple_backend.models.snippet import Snippet
-from simple_backend.serializers.snippet import SnippetSerializer
+from simple_backend.models.colors import Colors
+from simple_backend.serializers.colors import ColorsSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
 
-class SnippetList(APIView):
+class ColorsList(APIView):
     """
-    List all snippets, or create a new snippet.
+    List all colors, or create a new color.
     """
     def get(self, request, format=None):
-        snippets = Snippet.objects.all()
-        serializer = SnippetSerializer(snippets, many=True)
+        colors = Colors.objects.all()
+        serializer = ColorsSerializer(colors, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = SnippetSerializer(data=request.data)
+        serializer = ColorsSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

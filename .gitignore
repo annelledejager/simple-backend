@@ -1,4 +1,8 @@
+# Intellij
+.idea/
+*.iml
 
 *.xml
-*.iml
 *.pyc
+
+/staticfiles/*
