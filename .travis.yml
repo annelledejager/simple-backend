@@ -11,9 +11,10 @@ jobs:
   - stage: test application
     script: docker-compose -f docker-compose.test.yml down
   - stage: build docker image
-    - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
-    - docker build -t registry.heroku.com/powerful-taiga-71470/web -f Dockerfile .
-    - docker push registry.heroku.com//powerful-taiga-71470/web
+    script:
+      - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
+      - docker build -t registry.heroku.com/powerful-taiga-71470/web -f Dockerfile .
+      - docker push registry.heroku.com//powerful-taiga-71470/web
   - stage: deploy application
     script: skip
     deploy:
