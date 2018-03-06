@@ -2,6 +2,9 @@
 
 cmd="$@"
 
+# Wait for DB service to be ready
+./scripts/wait-for db:5432
+
 # Collect static files
 echo "Collect static files"
 python manage.py collectstatic --noinput

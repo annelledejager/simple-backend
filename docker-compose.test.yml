@@ -1,13 +1,10 @@
-sut:
-  build: .
-  command: python3 manage.py test
-  links:
-    - web
-    - db
-web:
-  build: .
-  dockerfile: Dockerfile
-  links:
-    - db
-db:
-  image: postgres
+version: '3'
+
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    command: python3 manage.py test
+    depends_on:
+      - db
