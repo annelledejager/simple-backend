@@ -8,17 +8,18 @@ services:
 
 jobs:
   include:
-  - stage: test application
+  - stage: unit tests
     script: docker-compose -f docker-compose.test.yml down
   - stage: build docker image
     script:
       - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
       - docker build -t registry.heroku.com/powerful-taiga-71470/web .
       - docker push registry.heroku.com/powerful-taiga-71470/web
-  - stage: deploy application
+  - stage: deploy to production
     script: skip
-    deploy:
+    deploy: &heroku
       provider: heroku
-      api_key:
-        secure: ycNHvhPEKYE4bitI76Q1Si+Pg4gyNrnoNHD0ghgtSv5zgA0UUrcReI2k2NHXH7z9T2MhNj7eqf4zRAk/56LMooEQlHq8QabzjzIZ+zU3Ndnxn8NXm22d+mkoJsGhS/8g0jgnilu1r2JM88BG5jhatKIpVjkAbDIYkSdZxDzDlSyKpJqbfwwEeodNqOCHUkFFwuCfayGbrieYapYRdX66ZGaIRS+tiPhaF6fCtPg2Lj67x0OCn/wwty77+aY2DlwDdEjZZ3PDugV/n4Dp/59latC4BfckhIehM0gvblj/rY4g90vfAQRoKDOMa5I8fQ2YzysWRNtyCsw7D8VZQ4haHrnAoLH1oKqu4pnOCOyCSHq4Kbh4GrKIaJHjJnzMGWbr3/QNjK6luyQL/2RpOFY8tsfCQ3e5ILRCwignfdRXMxm4arhQIFc5zhYuadsAYDRDo6Xl40kIlvdActQgGlNnIxSMYCuGERzoCzmorsw7y8rIjcYX2Yy3P7G1HrmGFhkSPqPzXrmQHW21hTWKpyvfxSra0RPWJ7bCy0dXkNCk3ztZhP0jY6X2KVu0J84RZAsnjtbda3zn+OhbSnUyHB9HcFSOV4gfJ12wtE0/hwQdHrvus9f6phz+X2MjW61t3A8obBPfk9yI6pySkyA0F2l6qg+r8sNDpbzA6ruZIoMc6js=
+      api_key: $HEROKU_TOKEN
       app: powerful-taiga-71470
+   - stage: test production
+      script: 'curl https://powerful-taiga-71470.herokuapp.com/'
