@@ -17,3 +17,5 @@ ADD . /app/
 # Set entrypoint
 RUN chmod +x ./scripts/docker-entrypoint.sh
 ENTRYPOINT ["./scripts/docker-entrypoint.sh"]
+
+CMD [""]
