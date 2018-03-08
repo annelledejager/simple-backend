@@ -8,13 +8,13 @@ services:
 
 jobs:
   include:
-  - stage: unit tests
-    script: docker-compose -f docker-compose.test.yml up
   - stage: build docker image
     script:
       - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
       - docker build -t registry.heroku.com/powerful-taiga-71470/web .
       - docker push registry.heroku.com/powerful-taiga-71470/web
+  - stage: unit tests
+    script: docker-compose -f docker-compose.test.yml up
   - stage: deploy to production
     script: skip
     deploy:
