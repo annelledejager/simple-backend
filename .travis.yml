@@ -13,12 +13,12 @@ jobs:
       - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
       - docker build -t registry.heroku.com/powerful-taiga-71470/web .
       - docker push registry.heroku.com/powerful-taiga-71470/web
-  - stage: unit tests
+  - stage: unit tests againt latest docker image
     script:
       - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
       - docker-compose -f docker-compose.test.yml pull
       - docker-compose -f docker-compose.test.yml up --abort-on-container-exit
-  - stage: deploy to production
+  - stage: deploy application to production
     script: skip
     deploy:
       provider: heroku
