@@ -12,6 +12,12 @@ WORKDIR /app
 ADD requirements.txt /app/
 RUN pip install -r requirements.txt
 
+# Install
+RUN ["apt-get", "update"]
+RUN ["apt-get", "install", "-y", "vim"]
+RUN ["apt-get", "install", "-y", "postgresql"]
+RUN ["apt-get", "install", "-y", "postgresql-contrib"]
+
 ADD . /app/
 
 # Set entrypoint

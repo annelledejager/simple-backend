@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     image: postgres
-  web:
+  test:
     build: .
     image: registry.heroku.com/powerful-taiga-71470/web:latest
     command: python3 manage.py test

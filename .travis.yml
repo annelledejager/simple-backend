@@ -9,7 +9,7 @@ services:
 jobs:
   include:
   - stage: unit tests
-    script: docker-compose -f docker-compose.test.yml down
+    script: docker-compose -f docker-compose.test.yml up
   - stage: build docker image
     script:
       - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
