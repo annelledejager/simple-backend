@@ -16,7 +16,7 @@ jobs:
   - stage: unit tests
     script:
       - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
-      - docker-compose -f docker-compose.test.yml pull
+      - docker-compose -f docker-compose.test.yml up
   - stage: deploy to production
     script: skip
     deploy:
