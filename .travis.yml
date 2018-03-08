@@ -17,7 +17,7 @@ jobs:
       - docker push registry.heroku.com/powerful-taiga-71470/web
   - stage: deploy to production
     script: skip
-    deploy: &heroku
+    deploy:
       provider: heroku
       api_key: $HEROKU_TOKEN
       app: powerful-taiga-71470
