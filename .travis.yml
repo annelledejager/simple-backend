@@ -14,7 +14,9 @@ jobs:
       - docker build -t registry.heroku.com/powerful-taiga-71470/web .
       - docker push registry.heroku.com/powerful-taiga-71470/web
   - stage: unit tests
-    script: docker-compose -f docker-compose.test.yml pull
+    script:
+      - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
+      - docker-compose -f docker-compose.test.yml pull
   - stage: deploy to production
     script: skip
     deploy:
