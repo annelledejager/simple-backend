@@ -10,7 +10,7 @@ The production application is deployed to Heroku through Travis CI without being
 
 ## Demo
 
-Follow [this](https://powerful-taiga-71470.herokuapp.com/colors/) link.
+Follow [this](https://simple-backend.herokuapp.com/colors/) link.
 
 ## Getting Started
 

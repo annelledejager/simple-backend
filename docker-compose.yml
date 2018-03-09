@@ -5,7 +5,7 @@ services:
     image: postgres
   web:
     build: .
-    image: registry.heroku.com/powerful-taiga-71470/web:latest
+    image: registry.heroku.com/simple-backend/web:latest
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
