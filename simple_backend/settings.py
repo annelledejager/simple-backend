@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_nose',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -119,3 +120,13 @@ REST_FRAMEWORK = {
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Tell nose to measure coverage on apps
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=simple_backend',
+    '–cover-inclusive',
+]

@@ -11,8 +11,8 @@ jobs:
   - stage: build docker image
     script:
       - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
-      - docker build -t registry.heroku.com/powerful-taiga-71470/web .
-      - docker push registry.heroku.com/powerful-taiga-71470/web
+      - docker build -t registry.heroku.com/simple-backend/web .
+      - docker push registry.heroku.com/simple-backend/web
   - stage: unit tests againt latest docker image
     script:
       - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
@@ -23,6 +23,6 @@ jobs:
     deploy:
       provider: heroku
       api_key: $HEROKU_TOKEN
-      app: powerful-taiga-71470
+      app: simple-backend
   - stage: test production
-    script: 'curl https://powerful-taiga-71470.herokuapp.com/'
+    script: 'curl https://simple-backend.herokuapp.com/'
