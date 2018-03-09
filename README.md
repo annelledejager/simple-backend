@@ -57,4 +57,4 @@ The build job includes
 
 * **Annelle de Jager** 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/annelledejager/simple-backend/graphs/contributors) who participated in this project.
