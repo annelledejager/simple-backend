@@ -2,7 +2,7 @@
 
 # Simple backend
 
-This project is a simple backend with basic functionality. A space to experiment and play with new technologies. 
+This project is a simple Django backend application with basic functionality. A space to experiment and play with new technologies. 
 
 The project includes a basic Djagno application with one endpoint. The local development environment is setup using Docker. The Docker image is built and stored in Heroku's Docker registry. 
 
