@@ -4,9 +4,13 @@
 
 This project is a simple Django backend application with basic functionality. A space to experiment and play with new technologies. 
 
-The project includes a basic Djagno application with one endpoint. The local development environment is setup using Docker. The Docker image is built and stored in Heroku's Docker registry. 
+The local development environment is setup using Docker. The Docker image is built, uploaded and stored in Heroku's Docker registry. 
 
 The production application is deployed to Heroku through Travis CI without being Dockerized. 
+
+## Demo
+
+Follow [this](https://powerful-taiga-71470.herokuapp.com/colors/) link.
 
 ## Getting Started
 
@@ -27,7 +31,7 @@ Then visit `http://localhost:8000/` to view your application.
 
 ### Prerequisites
 
-You need to install docker and docker-compose. [Following theses](https://docs.docker.com/docker-for-mac/) instructions.
+You need to install docker and docker-compose. Follow [theses](https://docs.docker.com/docker-for-mac/) instructions.
 
 ## Running the tests
 
@@ -38,7 +42,7 @@ $ docker-compose -f docker-compose.test.yml up
 
 ## Deployment
 
-The application is deployed to Heroku using Travis CI. Pushing to Master will trigger a the build job. 
+The application is deployed to Heroku using Travis CI. Pushing the master branch will trigger a build job. 
 
 The build job includes
 * build docker image
