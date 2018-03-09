@@ -14,15 +14,16 @@ Clone the repository to a location of your liking. In your shell run the followi
 
 ```
 $ cd simple_backend
-$ docker-compose pull
 $ docker-compose up
 ```
 
-If you want to pull the latest Docker image from Heroku run the following command before the `pull` command.
+If you want to pull the latest Docker image from Heroku run the following command before the `up` command.
 
 ```
 $ docker-compose pull
 ```
+
+Then visit `http://localhost:8000/` to view your application.
 
 ### Prerequisites
 
