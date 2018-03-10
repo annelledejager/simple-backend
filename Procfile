@@ -1,3 +1,2 @@
-release: python manage.py migrate
-release: python manage.py loaddata simple_backend/fixtures/initial_data.json
+release: ./release-tasks.sh
 web: gunicorn simple_backend.wsgi:application --log-file -
